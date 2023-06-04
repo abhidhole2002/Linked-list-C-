@@ -32,7 +32,7 @@ public:
 int main() {
     
     int size;
-    cout<<"enter size of array : ";
+    cout<<"enter size of linked list : ";
     cin>>size;
 
     int a[size];
