@@ -62,22 +62,51 @@ class slist
         }
 
         slist* curr = head;
-        slist* prev= head;
-
         // Traverse the list to find the node to delete
-        while (curr->data != value) {
-            prev = curr;
+        while (curr->next->data != value)
+        {
             curr = curr->next;
         }
 
+        slist* del_node=curr->next;
+        curr->next=curr->next->next;
+        delete del_node;
+        del_node = NULL;
 
-        // Delete the node by updating the pointers
-        prev->next = curr->next;
+    }
+  }
+
+
+  void delete_pos(int position)
+  {
+   
+    if(position==1)
+    {
+        slist* temp=head;
+        head=head->next;
+        delete temp;
+        temp=NULL;
+    }
+
+    else
+    {
+        slist* curr = head;
+        slist* prev = NULL;
+
+        for(int i=1;i<position;i++)
+        {
+            prev = curr;
+            curr=curr->next;
+        }
+
+        prev->next=curr->next;
         delete curr;
         curr = NULL;
     }
   }
 
+
+ 
 };
  
 int main()
@@ -89,20 +118,25 @@ int main()
     obj.addtail(12);
     obj.print();
     cout<<endl;
-    cout<<"after deleting head --> ";
+    /*cout<<"after deleting head --> ";
+    obj.delete_any(10);
+    obj.print();*/
+
+    //obj.delete_pos(3);
+    //obj.print();
+
+
     obj.delete_any(10);
     obj.print();
 
-    cout<<endl;
-
-    cout<<"after deleting tail --> ";
+    /*cout<<"after deleting tail --> ";
     obj.delete_any(12);
     obj.print();
 
     cout<<endl;
-    
+
     cout<<"after deleting 11 --> ";
     obj.delete_any(11);
-    obj.print();
+    obj.print();*/
  
 }
