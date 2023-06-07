@@ -88,10 +88,11 @@ int main()
     obj.addtail(10);
     obj.addtail(11);
     obj.addtail(12);
+    cout<<"this is the list --->> "
     obj.print();
     cout<<endl;
 
-
+    cout<<"after deleting element which is prenset at 3rd position -->> "
     obj.delete_pos(3);
     obj.print();
 
