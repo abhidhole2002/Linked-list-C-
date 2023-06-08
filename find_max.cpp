@@ -30,7 +30,7 @@ class slist
 
         while (temp != NULL)
         {
-            if (temp->data < max)
+            if (temp->data > max)    // by changing > this sign to < this we can find minimum in list
             {
                 max = temp->data;
             }
